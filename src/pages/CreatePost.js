@@ -21,6 +21,7 @@ export default function CreatePost() {
             method: 'POST',
             body: data,
             credentials: 'include',
+            withCredentials: true,
         });
         if (response.ok) {
             setRedirect(true);

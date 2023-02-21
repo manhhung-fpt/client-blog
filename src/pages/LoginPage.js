@@ -14,6 +14,7 @@ export default function LoginPage() {
       body: JSON.stringify({username, password}),
       headers: {'Content-Type':'application/json'},
       credentials: 'include',
+      withCredentials: true,
     });
     if (response.ok) {
       response.json().then(userInfo => {

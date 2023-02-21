@@ -31,13 +31,18 @@ export default function EditPost() {
         if (files?.[0]) {
             data.set('file', files?.[0]);
         }
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/post`, {
-            method: 'PUT',
-            body: data,
-            credentials: 'include',
-        });
-        if (response.ok) {
-            setRedirect(true);
+        try {
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/post`, {
+                method: 'PUT',
+                body: data,
+                credentials: 'include',
+                withCredentials: true,
+            });
+            if (response.ok) {
+                setRedirect(true);
+            }
+        } catch (error) {
+            console.log(error);
         }
     }
 

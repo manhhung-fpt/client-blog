@@ -8,6 +8,7 @@ export default function Header() {
   useEffect(() => {
     fetch(`${process.env.REACT_APP_API_URL}/profile`, {
       credentials: 'include',
+      withCredentials: true,
     }).then(response => {
       response.json().then(userInfo => {
         setUserInfo(userInfo);
